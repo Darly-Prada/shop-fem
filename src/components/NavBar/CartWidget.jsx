@@ -1,8 +1,8 @@
-import { MdShoppingCart } from "react-icons/md";
+import { CgShoppingCart } from "react-icons/cg"
 const CartWidget = () => {
   return (
     <div className="widget">
-        <MdShoppingCart />
+        <CgShoppingCart/>
         <span>1</span>
     </div>
   )

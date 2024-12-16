@@ -1,0 +1,128 @@
+const products = [
+    {
+        id: "clt001",
+        nombre:"Vestido Fiesta",
+        imagen: "/img/vestido.webp",
+        precio: "2750",
+        descripcion:"Un vestido sofisticado que destaca por su diseño atemporal y delicado. Con detalles como bordados, encajes o telas fluidas. Resalta la elegancia natural de quien lo lleva ",
+        categoria: "ropa",
+        stock: 12,
+    },
+    {
+        id: "clt002",
+        nombre:"Abrigo light",
+        imagen: "/img/abrigogris.jpg",
+        precio: "2750",
+        descripcion:"Un abrigo se convierte en una prenda clave para un look chic durante la temporada de frío, ideal para ocasiones formales o para dar un toque elegante a un conjunto casual.",
+        categoria: "ropa",
+        stock: 4,
+    },
+    {
+        id: "clt003",
+        nombre:"Blusa formal",
+        imagen: "/img/blusa.jpg",
+        precio: "2750",
+        descripcion:"Una blusa refinada, diseñada con materiales ligeros y cómodos, como seda o satén. Con detalles sutiles como mangas largas de volantes, Perfecta para combinarlas con faldas, pantalones de vestir o incluso bajo un blazer para un look profesional.",
+        categoria: "ropa",
+        stock: 6,
+    },
+    {
+        id: "clt004",
+        nombre:"Falda Clásica",
+        imagen: "/img/faldagris.jpg",
+        precio: "2100",
+        descripcion:"Falda de corte impecable, que puede variar desde una falda lápiz ajustada hasta una falda plisada fluida. Hecha con telas como el terciopelo, seda o lino, esta pieza aporta feminidad y clase, perfecta para eventos formales o cenas elegantes. Puede combinarse con blusas o tops ajustados, y un par de tacones para un acabado refinado.",
+        categoria: "ropa",
+        stock: 6,
+    },
+    {
+        id: "clt005",
+        nombre:"Pantalon Cómodo",
+        imagen: "/img/pantalon.jpg",
+        precio: "2750",
+        descripcion:"Pantalon elegancia y comodidad; Su diseño estructurado permite que sea ideal tanto para el trabajo como para eventos informales, proporcionando una silueta elegante y estilizada. Combina fácilmente con blusas, chaquetas y zapatos de tacón.",
+        categoria: "ropa",
+        stock: 6,
+    },
+    {
+        id: "sh006",
+        nombre:"Tacón Sensual",
+        imagen: "/img/taconrojo.avif",
+        precio: "2750",
+        descripcion:" Tacon que combina lo mejor de ambos mundos: estilo y confort. Con un diseño sofisticado y detalles refinados, su versatilidad permite combinarlos con vestidos, faldas o pantalones, adaptándose a diversas ocasiones.",
+        categoria: "zapatos",
+        stock: 10,
+    }, 
+    {
+        id: "sh0012",
+        nombre:"Tacones Plateados",
+        imagen: "/img/taconclaro.avif",
+        precio: "2750",
+        descripcion:" Tacon que combina lo mejor de ambos mundos: estilo y confort. Con un diseño sofisticado y detalles refinados, su versatilidad permite combinarlos con vestidos, faldas o pantalones, adaptándose a diversas ocasiones.",
+        categoria: "zapatos",
+        stock: 10,
+    },
+    {
+        id: "acs008",
+        nombre:"Collar Piedras Preciosas",
+        imagen: "/img/collar1.jpg",
+        precio: "2750",
+        descripcion:"Un collar impresionante que eleva cualquier conjunto a un nivel de sofisticación y lujo. Con piedras preciosas, con “Glamur y altura” se convierte en el punto focal de cualquier atuendo, aportando un toque de opulencia y refinamiento. ",
+        categoria: "accesorios",
+        stock: 8,
+    },
+    {
+        id: "sh007",
+        nombre:"Sandalias",
+        imagen: "/img/sandalclaro.jpg",
+        precio: "2650",
+        descripcion:"Elegancia y comodidad incorporan tecnologías como plantillas acolchonadas, suelas antideslizantes y un tacón más ancho o de altura moderada para garantizar estabilidad. Son perfectos para quienes desean lucir elegantes en eventos formales, reuniones o cenas sin sacrificar comodidad",
+        categoria: "zapatos",
+        stock: 6,
+    },
+    {
+        id: "sh008",
+        nombre:"Sandalias",
+        imagen: "/img/sandalnegro.avif",
+        precio: "2650",
+        descripcion:"Elegancia y comodidad suelas antideslizantes y un tacón más ancho o de altura moderada para garantizar estabilidad. Son perfectos para quienes desean lucir elegantes en eventos formales, reuniones o cenas sin sacrificar comodidad",
+        categoria: "zapatos",
+        stock: 6,
+    },
+    {
+        id: "acs009",
+        nombre:"Anillo Oro",
+        imagen: "/img/anillooro.jpg",
+        precio: "3250",
+        descripcion:"Un anillo deslumbrante diseñado para captar todas las miradas, que combina lujo y sofisticación en cada detalle. Con una piedra central de gran tamaño, como un diamante, zafiro o esmeralda, o una serie de cristales facetados, Perfecto para ocasiones especiales como bodas, galas o celebraciones formales, este anillo no solo se convierte en un accesorio de alto impacto, sino también en una pieza atemporal de lujo.",
+        categoria: "accesorios",
+        stock: 4,
+    },
+    {
+    id: "acs013",
+    nombre:"Anillo Plata",
+    imagen: "/img/anilloplata.jpg",
+    precio: "3250",
+    descripcion:"Un anillo deslumbrante diseñado para captar todas las miradas, que combina lujo y sofisticación en cada detalle. Con una piedra central de gran tamaño, como un diamante, zafiro o esmeralda, o una serie de cristales facetados, Perfecto para ocasiones especiales como bodas, galas o celebraciones formales, este anillo no solo se convierte en un accesorio de alto impacto, sino también en una pieza atemporal de lujo.",
+    categoria: "accesorios",
+    stock: 4,
+},
+    {
+        id: "acs010",
+        nombre:"Aretes Oro",
+        imagen:"/img/aretesOro.jpg",
+        precio:"4250",
+        descripcion:"Un par de aretes diseñados para resaltar y aportar sofisticación a cualquier look. Dando un toque de lujo y distinción",
+        categoria: "accesorios",
+        stock: 4,
+    },
+]
+
+const getProducts = ()=> {
+    return new Promise ((resolve, reject )=>{
+        setTimeout(()=> {
+            resolve(products)
+    },2000)
+    })
+}
+export {getProducts}
