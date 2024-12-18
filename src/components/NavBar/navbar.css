@@ -58,6 +58,9 @@ li:hover{
 align-items: center;
 font-size: 2rem;
 }
+.widget:hover{
+    color: #8d112a;
+}
 h1{
     font-size: 3rem;
     color: #a40505;
