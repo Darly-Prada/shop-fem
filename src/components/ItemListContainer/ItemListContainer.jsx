@@ -1,37 +1,62 @@
 import { useState, useEffect } from "react"
-import {getProducts} from "../../data/data.js"
 import ItemList from "./ItemList.jsx"
 import { useParams } from "react-router-dom"
 import { FadeLoader} from "react-spinners"
-import "./Item.css";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer.jsx"
+import {collection, getDocs,query, where} from "firebase/firestore"
+import db from "../../db/db.js"
+import "./Item.css";
 
 
 const ItemListContainer = ({saludo}) => {
 
 const [products, setProducts] =useState([])
-const [loading, setLoading]= useState(false)
+const [loading, setLoading]= useState(true) //empieza antes del llamado 
 const {idCategoria} = useParams()
 
+const collectionName = collection (db, "productos")
+
+const getProducts = async() =>{
+  try{
+    setLoading(true);  // agregado 
+    const dataDb = await getDocs(collectionName)
+
+    const data = dataDb.docs.map((productDb)=> {
+      return {id:productDb.id, ...productDb.data()}
+    })
+    setProducts(data)
+
+  } catch (error){
+    console.log(error)
+  }
+  setLoading(false); // agregado 
+}
+
+const getProductsByCategory = async() =>{
+  try {
+    setLoading(true); // Asegúrate de que loading agregado
+  const question = query (collectionName, where("categoria", "==" , idCategoria))
+  const dataDb = await getDocs(question)
+
+  const data = dataDb.docs.map((productDb)=> {
+    return {id:productDb.id, ...productDb.data()}
+  })
+
+  setProducts(data)
+
+} catch (error){
+  console.log(error)
+}
+setLoading(false); // agregado
+}
 useEffect(()=> {
-
-  setLoading(true)
-
+  if(idCategoria){
+    getProductsByCategory()
+  }else{
     getProducts()
-    .then((data)=>{
-        if(idCategoria){
-          const productsFilter =data.filter((product)=> product.categoria === idCategoria )
-           setProducts(productsFilter)
-        }else{
-          setProducts(data)
-        }      
-    })   
-    .catch((error) =>{
-        console.log(error)
-    })
-    .finally(()=> {
-       setLoading(false)
-    })
+  }
+setLoading(true) 
+
 }, [idCategoria]) 
 
   return (
@@ -41,8 +66,6 @@ useEffect(()=> {
       loading === true ? (<div className="espiner"><FadeLoader
         color="#a039ef"loading size={200} speedMultiplier={1} /></div>): (<ItemList products={products}/>)
     }
-    <ItemDetailContainer/>
-    
     </div>
   )
 }
