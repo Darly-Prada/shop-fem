@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react"
 import {getProducts} from "../../data/data.js"
-import ItemList from "./ItemList"
+import ItemList from "./ItemList.jsx"
 import { useParams } from "react-router-dom"
 import { FadeLoader} from "react-spinners"
 import "./Item.css";
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer.jsx"
+
 
 const ItemListContainer = ({saludo}) => {
+
 const [products, setProducts] =useState([])
 const [loading, setLoading]= useState(false)
-
-
 const {idCategoria} = useParams()
 
 useEffect(()=> {
@@ -32,6 +33,7 @@ useEffect(()=> {
        setLoading(false)
     })
 }, [idCategoria]) 
+
   return (
     <div className="itemlistcontainer">
      <h1>{saludo}</h1>
@@ -39,8 +41,9 @@ useEffect(()=> {
       loading === true ? (<div className="espiner"><FadeLoader
         color="#a039ef"loading size={200} speedMultiplier={1} /></div>): (<ItemList products={products}/>)
     }
+    <ItemDetailContainer/>
+    
     </div>
-
   )
 }
 export default ItemListContainer

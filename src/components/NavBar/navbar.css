@@ -53,14 +53,28 @@ li:hover{
     color: #8d112a;
     text-decoration: underline;
 }
+.cartwidget{
+display: flex;
+justify-content: center;
 
-.widget{
+}
+
+.icon-widget{
 align-items: center;
 font-size: 2rem;
 }
-.widget:hover{
+
+.icon-widget:hover{
     color: #8d112a;
 }
+.number-widget{
+color: #8a0449;
+padding: .25rem;
+ 
+
+
+}
+
 h1{
     font-size: 3rem;
     color: #a40505;

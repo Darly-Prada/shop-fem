@@ -24,15 +24,8 @@
 }
 .item:hover{
     transform: scale(1.05); 
-    box-shadow: 0 10px 20px #dac5da33; 
+    box-shadow: 0 10px 10px #dac5da33; 
     color: #8d112a;
-}
-.item-detail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem auto;
-    overflow-x: hidden;  
 }
 
 .text-item{
@@ -57,6 +50,7 @@
     text-align: start;
     text-align: justify;
     font-size: 1.5rem;
+    color: black;
 }
 
 .text-detail-precio {
@@ -80,7 +74,7 @@
     object-fit: contain;   
 }
 .detail{
-    background-color: blue;
+    background-color: #6a30e6;
     color: white;
     padding: 8px;
     margin: 4px auto;
@@ -88,7 +82,7 @@
     border-radius: 5px;
 }
 .detail:hover{
-    color: blue;
+    color: #6a30e6;
     background-color: transparent;
     border: 1px solid #8d112a; 
     font-weight: bold;
@@ -98,9 +92,6 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
-   max-height: 100vh;
-
+   max-height: 100vh;    
     
-    
-    
-}
+} 
