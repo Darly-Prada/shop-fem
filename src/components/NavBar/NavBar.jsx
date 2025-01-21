@@ -6,16 +6,36 @@ import "./navbar.css";
 const NavBar = () => {
   return (
     <nav className="navbar">
-
       <Link to="/" className="brand">
-      <img src={logoShop} alt="Logo de ShopFem" className="logo" />
-      <p className="name">ShopFem</p>
+        <img src={logoShop} alt="Logo de ShopFem" className="logo" />
+        <p className="name">ShopFem</p>
       </Link>
 
       <ul className="categorias">
-        <NavLink to="/categoria/ropa" className={({isActive})=>isActive ? "categoria-active" : "categoria" }>Ropa</NavLink>
-        <NavLink to="/categoria/zapatos" className={({isActive})=>isActive ? "categoria-active" : "categoria" }>Calzado</NavLink>
-        <NavLink to="/categoria/accesorios" className={({isActive})=>isActive ? "categoria-active" : "categoria" }>Accesorios</NavLink>
+        <NavLink
+          to="/categoria/ropa"
+          className={({ isActive }) =>
+            isActive ? "categoria-active" : "categoria"
+          }
+        >
+          Ropa
+        </NavLink>
+        <NavLink
+          to="/categoria/zapatos"
+          className={({ isActive }) =>
+            isActive ? "categoria-active" : "categoria"
+          }
+        >
+          Calzado
+        </NavLink>
+        <NavLink
+          to="/categoria/accesorios"
+          className={({ isActive }) =>
+            isActive ? "categoria-active" : "categoria"
+          }
+        >
+          Accesorios
+        </NavLink>
       </ul>
 
       <CartWidget />

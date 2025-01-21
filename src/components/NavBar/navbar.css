@@ -43,25 +43,34 @@
     transform: scale(1,2);
     color: #8d112a;
 }
-li{
-    font-size: 1.5rem;
-    padding: .25rem;
+.categorias{
+   padding: .25rem;
     margin: .25rem;
     
 }
-li:hover{
+.categorias:hover{
+    color: #8d112a;
+    transform: scale(1,2);
+}
+.categoria{
+    color: white;
+    text-decoration: none;
+
+}
+.categoria-active{
     color: #8d112a;
     text-decoration: underline;
+
 }
 .cartwidget{
 display: flex;
 justify-content: center;
-
 }
 
 .icon-widget{
 align-items: center;
 font-size: 2rem;
+text-shadow: 2px 2px 5px #8d3d8d;
 }
 
 .icon-widget:hover{
@@ -81,14 +90,4 @@ h1{
     padding: 2.5rem 0;
     text-align: center;
     text-shadow: 2px 2px 5px #cb4ecb;
-}
-.categoria{
-    color: white;
-    text-decoration: none;
-
-}
-.categoria-active{
-    color: #8d112a;
-    text-decoration: underline;
-
 }
