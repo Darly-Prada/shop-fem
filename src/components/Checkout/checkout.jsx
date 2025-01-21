@@ -5,7 +5,6 @@ import { Timestamp, collection, addDoc } from "firebase/firestore";
 import db from "../../db/db.js";
 import validateForm from "../../utils/validateForm.js";
 import { toast } from "react-toastify";
-
 import "./checkout.css";
 
 const Checkout = () => {
@@ -54,12 +53,12 @@ const Checkout = () => {
   return (
     <div>
       {ordenId ? (
-        <div>
+        <div className="orden">
           <h2>
-            La orden subio bien!. Este es su Código para seguimiento a su
-            pedido!
+            Su Orden subió bien!. Este es su Código para el seguimiento a su
+            pedido!.
           </h2>
-          <h3 className="text">{ordenId}</h3>
+          <h3 className="text"> #: {ordenId}</h3>
         </div>
       ) : (
         <FormCheckout
