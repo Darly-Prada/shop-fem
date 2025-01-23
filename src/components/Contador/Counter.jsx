@@ -14,8 +14,14 @@ const Counter = ({ stock, addProductInCart }) => {
     if (counter < stock) {
       setCounter(counter + 1);
     }
+  const handleAddToCart = () => {
+    if (!isNaN(counter) && counter > 0 && counter <= stock) {
+      addProductInCart(counter);
+    } else {
+      alert("Cantidad inválida o fuera de stock.");
+    }
   };
-
+  };
   return (
     <div className="btn-counter">
       <button onClick={handleClickRemove} className="btn-count">

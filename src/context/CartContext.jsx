@@ -11,16 +11,21 @@ const CartProvider = ({ children }) => {
   }, [cart]);
 
   const addProduct = (newProduct) => {
+
+    if (!newProduct.quantity || newProduct.quantity <= 0) {
+      console.error("El producto debe tener una cantidad válida.");
+      return;
+    }
+
     const index = cart.findIndex(
       (productCart) => productCart.id === newProduct.id
     );
 
     if (index === -1) {
-      //agregamos producto nuevo
-      setCart([...cart, newProduct]);
+        setCart([...cart, newProduct]);
     } else {
-      //modificar solo cantidad de producto
-      const newCart = [...cart];
+      
+    const newCart = [...cart];
       newCart[index].quantity = newCart[index].quantity + newProduct.quantity;
       setCart(newCart);
     }
@@ -32,7 +37,6 @@ const CartProvider = ({ children }) => {
     );
     return quantity;
   };
-
   const totalPrecio = () => {
     const precio = cart.reduce(
       (total, productCart) => total + productCart.quantity * productCart.precio,
@@ -40,7 +44,6 @@ const CartProvider = ({ children }) => {
     );
     return precio;
   };
-
   const deleteProductById = (idProduct) => {
     const filterProducts = cart.filter(
       (productCart) => productCart.id !== idProduct
@@ -67,5 +70,4 @@ const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
-
 export { CartContext, CartProvider };

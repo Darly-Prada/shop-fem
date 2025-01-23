@@ -12,17 +12,24 @@ const Checkout = () => {
     fullname: "",
     mobile: "",
     email: "",
+    email2: "", 
   });
 
   const [ordenId, setOrdenId] = useState(null);
 
-  const { cart, totalPrecio } = useContext(CartContext);
+  const { cart, totalPrecio, deleteCart  } = useContext(CartContext);
 
   const handleChangeForm = (event) => {
     setDataForm({ ...dataForm, [event.target.name]: event.target.value });
   };
   const handleSubmitForm = async (event) => {
     event.preventDefault();
+
+    // Verificar que los 2 correos coincidan
+        if (dataForm.email !== dataForm.email2) {
+          toast.warning("Los correos no coinciden. Por favor, verifique.");
+          return;
+        }
 
     const orden = {
       comprador: { ...dataForm },
@@ -46,8 +53,14 @@ const Checkout = () => {
 
       const respuesta = await addDoc(ordenesRef, nuevaOrden);
       setOrdenId(respuesta.id);
-    } catch (error) {
-      console.log(error);
+
+            // Vaciar el carrito después de que la orden se suba exitosamente
+            deleteCart();  // Llamar a la función que vacía el carrito
+          } catch (error) {
+            
+      // console.log(error);
+      toast.error(response.message);
+
     }
   };
   return (

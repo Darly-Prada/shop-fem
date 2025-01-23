@@ -1,19 +1,37 @@
-import { useContext, useState } from "react";
+import { useContext, useState,useEffect  } from "react";
 import { CartContext } from "../../context/CartContext";
 import Counter from "../Contador/Counter";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify"; 
+
 import "./itemdetail.css";
 
-const ItemDetail = ({ product }) => {
+  const ItemDetail = ({ product }) => {
   const [mostrarCounter, setMostrarCounter] = useState(true);
-  const { addProduct } = useContext(CartContext);
-
+  const { cart, addProduct } = useContext(CartContext);
   const addProductInCart = (counter) => {
-    // añadimos prooducto carrito
+
+    // validacion si producto ya existe en el carrito
+    const productoExiste = cart.findIndex((item) => item.id === product.id);
+    if (productoExiste !== -1) {
+      const updatedCart = [...cart];  
+      const producto = updatedCart[productoExiste];
+
+      if (!producto.quantity) {
+        producto.quantity = 0;
+      }
+      producto.quantity += counter;  
+      
+      addProduct(updatedCart);
+      toast.success("se han agregado mas productos del mismo.");
+    } else {
+    // añadimos producto carrito
     const productCart = { ...product, quantity: counter };
     addProduct(productCart);
-
+    toast.success("Producto agregado al carrito.");
+    }
     setMostrarCounter(false);
+    
   };
 
   if (!product) {

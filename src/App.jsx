@@ -6,6 +6,7 @@ import { CartProvider } from "./context/CartContext"
 import Cart from "./components/Cart/Cart"
 import Checkout from "./components/Checkout/checkout"
 import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
  
 
@@ -26,9 +27,9 @@ function App() {
             <Route path="/categoria/:idCategoria" element={<ItemListContainer saludo={"Bienvenid@s a ShopFem"}/>} />
             <Route path="/detail/:idProduct" element={<ItemDetailContainer/> }/>
             <Route path="/cart" element={<Cart />} />
-
             <Route path="/checkout" element={<Checkout />} /> 
-            <Route path="*" element={<div>Error 404 - Página no Encontrada.</div>}/>
+            
+              <Route path="*" element={<div>Error 404 - Página no Encontrada. </div>}/>
 
           </Routes> 
         </CartProvider>

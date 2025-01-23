@@ -30,6 +30,17 @@ const FormCheckout = ({ dataForm, handleChangeForm, handleSubmitForm }) => {
         className="input"
       />
 
+      
+<label>Confirmar Correo electrónico</label>
+      <input
+        type="email"
+        value={dataForm.email2}
+        name="email2" // Asegúrate de que el nombre del campo sea 'email2'
+        onChange={handleChangeForm}
+        placeholder="Ingrese Nuevamente su Correo electrónico"
+        className="input"
+      />
+
       <button type="submit" className="btn-form">
         Enviar Datos
       </button>
